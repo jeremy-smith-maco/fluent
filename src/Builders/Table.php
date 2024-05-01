@@ -76,6 +76,9 @@ class Table extends AbstractBuilder implements Buildable
     public function collate($collate)
     {
         $this->option('collate', $collate);
+        // Also setting 'collation' option so that diffs can correctly
+        // determine the table's collation when comparing to columns.
+        $this->option('collation', $collate);
 
         return $this;
     }
